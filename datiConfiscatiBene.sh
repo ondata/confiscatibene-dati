@@ -4,6 +4,8 @@ set -x
 
 folder="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+source "$folder"/config
+
 ### OpenCoesione ###
 dirOC="$folder/pubblicaAmministrazione/OpenCoesione"
 mkdir -p "$dirOC"
@@ -19,3 +21,4 @@ unzip "$dirOC"/opencoesione.zip -d "$dirOC"
 curl -L "https://opencoesione.gov.it/media/opendata/metadati_progetti_tracciato_esteso.xls" >"$dirOC"/metadati_progetti_tracciato_esteso.xls
 
 mlr -I --csv --ifs ";" --ofs "," clean-whitespace "$dirOC"/progetti.csv 
+cp "$dirOC"/progetti.csv "$web"/opencoesione.csv
