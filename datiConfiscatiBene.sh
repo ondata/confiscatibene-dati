@@ -21,4 +21,6 @@ unzip "$dirOC"/opencoesione.zip -d "$dirOC"
 curl -L "https://opencoesione.gov.it/media/opendata/metadati_progetti_tracciato_esteso.xls" >"$dirOC"/metadati_progetti_tracciato_esteso.xls
 
 mlr -I --csv --ifs ";" --ofs "," clean-whitespace "$dirOC"/progetti.csv 
+
 cp "$dirOC"/progetti.csv "$web"/opencoesione.csv
+cp "$dirOC"/metadati_progetti_tracciato_esteso.xls "$web"/metadati_progetti_tracciato_esteso.xls
